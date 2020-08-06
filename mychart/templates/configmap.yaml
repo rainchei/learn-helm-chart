@@ -4,5 +4,8 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   myvalue: "Hello world"
-  drink: {{ .Values.favorite.drink | default (printf "%s-tea" ("foo bar")) | quote }}
+  drink: {{ .Values.favorite.drink | default "tea" | quote }}
   food: {{ .Values.favorite.food | upper | quote }}
+  {{- if .Values.favorite.drink }}
+  mug: {{ "Please" | repeat 3 | squote }}
+  {{- end }}
