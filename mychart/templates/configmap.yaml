@@ -11,8 +11,8 @@ data:
   release: {{ $relname }}
   {{- end }}
   toppings: |-
-    {{- range .Values.pizzaToppings }}
-    - {{ . | title | quote }}
+    {{- range $index, $topping := .Values.pizzaToppings }}
+    - {{ $index }}-{{ $topping }}
     {{- end}}
   sizes: |-
     {{- range tuple "small" "medium" "large" }}
