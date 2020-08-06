@@ -1,3 +1,4 @@
+{{- $relname := .Release.Name -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -7,7 +8,7 @@ data:
   {{- with .Values.favorite }}
   drink: {{ .drink | default "tea" | quote }}
   food: {{ .food | upper | quote }}
-  release: {{ $.Release.Name }}
+  release: {{ $relname }}
   {{- end }}
   toppings: |-
     {{- range .Values.pizzaToppings }}
