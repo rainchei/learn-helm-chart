@@ -10,3 +10,4 @@ data:
   {{ $key }}: {{ $val | quote }}
   {{- end}}
   {{- include "mychart.app" . | nindent 2 }}
+  salad: {{ .Values.global.salad }}
